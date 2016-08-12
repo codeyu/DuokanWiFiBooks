@@ -47,19 +47,19 @@ var formidable = require('formidable')
 //  Exports
 // =======================================================
     module.exports.display = function($){
-        var filesList = getFileList("D:/tmp/"); 
+        var filesList = getFileList("D:/books/"); 
         filesList.sort(sortHandler);
         $.data = filesList;
         $.end();
     }
     module.exports.upload = function($){
-        var filesList = getFileList("D:/tmp/"); 
+        var filesList = getFileList("D:/books/"); 
         if($.multipart){
     	// parse multipart form data
             var form = new formidable.IncomingForm();
             form.uploadDir='D:/temp/';
             form.parse($.request, function(err, fields, files) {
-                fs.renameSync(files.newfile.path, "D:/tmp/" + files.newfile.name);
+                fs.renameSync(files.newfile.path, "D:/books/" + files.newfile.name);
                  $.success()
             });	
         } else {
@@ -68,17 +68,14 @@ var formidable = require('formidable')
     }
     module.exports.action = function($){
         if($.body._method==='delete'){
-            console.log($.body);
-            fs.unlink('D:/tmp/' + $.params.fileName);
+            fs.unlink('D:/books/' + decodeURI($.params.fileName));
         }
         $.end();
     }
     module.exports.download = function($){
         // 实现文件下载 
         var fileName = $.params.fileName;
-        console.log($.params);
-        var filePath = 'D:/tmp/' + fileName;
-        console.log(filePath);
+        var filePath = 'D:/books/' + fileName;
         var stats = fs.statSync(filePath); 
         if(stats.isFile()){
             $.header('content-type', 'application/octet-stream');
