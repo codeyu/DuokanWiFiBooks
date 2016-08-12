@@ -1,11 +1,12 @@
 {
-    "name": "new-project",
-    "description": "new-project-description",
-    "version": "0.0.1",
-    "dependencies": {
-        "diet": "^v0.9.26",
-        "diet-static": "^2.2.0",
-        "diet-cookies": "^0.2.0",
-        "ect": "^0.5.9"
-    }
+  "name": "new-project",
+  "description": "new-project-description",
+  "version": "0.0.1",
+  "dependencies": {
+    "diet": "^v0.10.8",
+    "diet-cookies": "^0.2.0",
+    "diet-static": "^2.2.0",
+    "ect": "^0.5.9",
+    "formidable": "^1.0.17"
+  }
 }

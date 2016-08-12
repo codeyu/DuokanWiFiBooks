@@ -2,6 +2,7 @@
 //                     File Controller
 //
 var fs = require('fs')
+var formidable = require('formidable')
 // =======================================================
 //  Dependencies
 // =======================================================
@@ -50,4 +51,49 @@ var fs = require('fs')
         filesList.sort(sortHandler);
         $.data = filesList;
         $.end();
+    }
+    module.exports.upload = function($){
+        var filesList = getFileList("D:/tmp/"); 
+        if($.multipart){
+    	// parse multipart form data
+            var form = new formidable.IncomingForm();
+            form.uploadDir='D:/temp/';
+            form.parse($.request, function(err, fields, files) {
+                fs.renameSync(files.newfile.path, "D:/tmp/" + files.newfile.name);
+                 $.success()
+            });	
+        } else {
+            console.log($.body)
+        }
+    }
+    module.exports.action = function($){
+        if($.body._method==='delete'){
+            console.log($.body);
+            fs.unlink('D:/tmp/' + $.params.fileName);
+        }
+        $.end();
+    }
+    module.exports.download = function($){
+        // 实现文件下载 
+        var fileName = $.params.fileName;
+        console.log($.params);
+        var filePath = 'D:/tmp/' + fileName;
+        console.log(filePath);
+        var stats = fs.statSync(filePath); 
+        if(stats.isFile()){
+            $.header('content-type', 'application/octet-stream');
+            $.header('Content-Disposition', 'attachment; filename='+fileName);
+            $.header('Content-Length', stats.size);
+            
+            var rs = fs.createReadStream(filePath);
+            rs.on("data", function (chunk){
+                 $.send(chunk);
+            });
+            rs.on("end", function () {
+                $.end();
+            });
+        } else {
+            $.error($.params.fileName, 'not find')
+            $.failure()
+        }
     }

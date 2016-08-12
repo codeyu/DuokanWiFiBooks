@@ -16,6 +16,8 @@
 //  Routes
 // =======================================================
     app.get('/files', files.display)
-
+    app.get('/files/:fileName', files.download)
+    app.post('/files', files.upload)
+    app.post('/files/:fileName', files.action)
   
                     
