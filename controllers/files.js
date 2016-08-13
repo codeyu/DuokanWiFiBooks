@@ -117,7 +117,7 @@ var iconv = require('iconv-lite');
             (s = userAgent.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :
             (s = userAgent.match(/firefox\/([\d.]+)/)) ? Sys.firefox = s[1] :
             (s = userAgent.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :
-            (s = uuserAgenta.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
+            (s = userAgent.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
             (s = userAgent.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
             if (Sys.ie || Sys.chrome)  
             {  
@@ -129,9 +129,7 @@ var iconv = require('iconv-lite');
                 rtn = 'filename*=UTF-8\'\'' + new_filename;  
             }  
             else if (Sys.safari)  
-            {  
-                
-                console.log(safariFileName);
+            {            
                 rtn = 'filename=' + new Buffer(filename).toString('binary');  
             }  
         } 
