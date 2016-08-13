@@ -1,6 +1,6 @@
 {
-  "name": "new-project",
-  "description": "new-project-description",
+  "name": "duokan-wifi-books",
+  "description": "DuokanWiFiBooks",
   "version": "0.0.1",
   "dependencies": {
     "diet": "^v0.10.8",

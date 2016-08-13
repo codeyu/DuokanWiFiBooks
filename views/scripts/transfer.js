@@ -41,7 +41,7 @@ $(function() {
 	
 	function downloadBook() {
 		var fileName = $(this).siblings(':first').text();
-		var url = "files/" + fileName;
+		var url = "files/" + encodeURI(fileName);
 		window.location = url;
 	}
 
