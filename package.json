@@ -8,5 +8,8 @@
     "diet-static": "^2.2.0",
     "ect": "^0.5.9",
     "formidable": "^1.0.17"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }

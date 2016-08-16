@@ -3,7 +3,6 @@
 //
 var fs = require('fs')
 var formidable = require('formidable')
-var iconv = require('iconv-lite');
 // =======================================================
 //  Dependencies
 // =======================================================
