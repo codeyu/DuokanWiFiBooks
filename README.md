@@ -18,5 +18,5 @@ npm start
 浏览器打开：[http://localhost:8000/](http://localhost:8000/)   
 截图：   
 
-![](http://codeyu.qiniudn.com/duokan.png)
+![](http://codeyu.qiniudn.com/duokan.png?imageView2/2/w/600)
 
