@@ -27,7 +27,7 @@ module.exports = function(app){
     // =======================================================
     } else if (environment == 'production') {
         return {
-            host: 'http://test.com'
+            host: 'process.env.LEANCLOUD_APP_PORT'
         }
     }
     
