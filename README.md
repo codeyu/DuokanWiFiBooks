@@ -15,8 +15,9 @@ npm install
 
 npm start
 
-浏览器打开：[http://localhost:8000/](http://localhost:8000/)   
-截图：   
+浏览器打开：[http://localhost:3000/](http://localhost:3000/)   
 
-![](http://codeyu.qiniudn.com/duokan.png?imageView2/2/w/600)
+## 在线Demo
+
+[WiFi 传书](http://duokan.leanapp.cn/)
 
