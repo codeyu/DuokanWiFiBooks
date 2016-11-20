@@ -9,9 +9,11 @@
     "diet-static": "^2.2.0",
     "ect": "^0.5.9",
     "formidable": "^1.0.17",
-    "leanengine": "^1.0.0-beta"
+    "leanengine": "^1.2.2"
   },
-  "engines" : { "node" : "6.x"},
+  "engines": {
+    "node": "6.x"
+  },
   "scripts": {
     "start": "node index.js"
   }
