@@ -11,7 +11,7 @@ module.exports = function(app){
     // =======================================================
     if(environment == 'local' || !environment){
         return {
-            host: 'http://localhost:8000'
+            host: 'http://localhost:3000'
         }
     
     // =======================================================
@@ -19,15 +19,16 @@ module.exports = function(app){
     // =======================================================
     } else if (environment == 'development' || environment == 'dev') {
         return {
-            host: 'http://localhost:8000'
+            host: 'http://localhost:3000'
         }
       
     // =======================================================
     //  Production 
     // =======================================================
     } else if (environment == 'production') {
+        var PORT = parseInt(process.env.LEANCLOUD_APP_PORT || 3000);
         return {
-            host: 'process.env.LEANCLOUD_APP_PORT'
+            host: PORT
         }
     }
     
